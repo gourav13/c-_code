@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1518774715 source:e:\new whatsapp\permutatio_function\main.cpp
+	<iostream>
+	<algorithm>
+	<list>
+

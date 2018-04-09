@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1522172768 source:e:\new whatsapp\permutation_check\main.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+

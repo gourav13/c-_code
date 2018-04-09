@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1516511121 source:e:\new whatsapp\stl\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<forward_list>
+
