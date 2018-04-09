@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1498769039 source:c:\users\hp\desktop\mycode\ccooooll\main.cpp
+	<iostream>
+	<cstring>
+	"vector.h"
+	"stack.cpp"
+
+1498769268 c:\users\hp\desktop\mycode\ccooooll\stack.cpp
+
+1498769352 source:c:\users\hp\desktop\mycode\ccooooll\stack.cpp
+	"vector.h"
+
+1498768318 c:\users\hp\desktop\mycode\ccooooll\vector.h
+
