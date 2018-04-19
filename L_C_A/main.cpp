@@ -25,32 +25,6 @@ void print(tree *root)
     print(root->left);
     print(root->right);
 }
-/*
-tree * lca(tree * root,int d1,int d2 )
-{
-    if(root==NULL)
-    return NULL;
-
-    if(root->data==d1||root->data==d2)
-    {
-
-        return root;
-    }
-
-
-    tree *t1=lca(root->left,d1,d2);
-    tree *t2=lca(root->right,d1,d2);
-    if(t1==NULL&&t2==NULL)
-        return NULL;
-    if(t1==NULL&&t2!=NULL)
-        return t2;
-    if(t1!=NULL&&t2==NULL)
-        return t1;
-    if(t1!=NULL&&t2!=NULL)
-        return root;
-
-}*/
-
 bool findpath(tree * root,vector<int> &v,int d)
 {
 
