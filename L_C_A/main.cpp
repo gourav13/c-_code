@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include<vector>
 using namespace std;
 
 class tree{
@@ -25,7 +25,7 @@ void print(tree *root)
     print(root->left);
     print(root->right);
 }
-
+/*
 tree * lca(tree * root,int d1,int d2 )
 {
     if(root==NULL)
@@ -49,6 +49,56 @@ tree * lca(tree * root,int d1,int d2 )
     if(t1!=NULL&&t2!=NULL)
         return root;
 
+}*/
+
+bool findpath(tree * root,vector<int> &v,int d)
+{
+
+    if(root==NULL)
+       {
+         return false;
+       }
+    v.push_back(root->data);
+    if(root->data==d)
+    {
+        return true;
+    }
+    if(findpath(root->left,v,d)||findpath(root->right,v,d))
+    {
+
+        return true;
+    }
+    else
+    {
+
+        v.pop_back();
+        return false;
+    }
+}
+
+int lca(tree *root,int d1,int d2)
+{
+
+    if(root==NULL)
+        return -1;
+    vector<int> v1,v2;
+
+    if(findpath(root,v1,d1)&&findpath(root,v2,d2))
+    {int i=0;
+        for(;i<v1.size()&&i<v2.size();i++)
+        {
+          if(v1[i]!=v2[i])
+          {
+
+              break;
+          }
+        }
+        return v1[i-1];
+    }
+    else{
+        return -1;
+    }
+
 }
 int main()
 {
@@ -64,11 +114,11 @@ int main()
     root->left->right->right=new tree(10);
     print(root);
     cout<<endl;
-    cout<<lca(root,7,10)->data;
+    cout<<lca(root,7,0);
     cout<<endl;
-    cout<<lca(root,7,6)->data;
+    cout<<lca(root,12,13);
     cout<<endl;
-    cout<<lca(root,5,10)->data;
+    cout<<lca(root,5,10);
 
 
     return 0;
