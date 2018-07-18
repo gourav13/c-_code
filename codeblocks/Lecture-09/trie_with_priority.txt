@@ -1,0 +1,127 @@
+#include<bits/stdc++.h>
+using namespace std;
+int maxx;
+class node
+{
+    public:
+    char ch;
+    bool isterminal;
+    int priority;
+    map<char,node*> m;
+    
+    node(char c)
+    {
+        ch=c;
+        isterminal=false;
+    }
+};
+
+class trie
+{ node * root=new node('\0');
+  public:
+  
+  
+  void addword(string s,int p)
+  {
+      node * temp=root;
+      char c;
+      for(int i=0;s[i]!='\0';i++)
+      {
+           c=s[i]
+          if(temp->m.count(c))
+          temp=temp->m[c];
+          else
+          {
+              temp->m[c]=new node(c);
+              temp=temp->m[c];
+          }
+      }
+      temp->isterminal=true;
+      temp->priority=p;
+      
+  }
+  
+  void addword(string s)
+  {
+      node * temp=root;
+      char c;
+      for(int i=0;s[i]!='\0';i++)
+      {
+           c=s[i]
+          if(temp->m.count(c))
+          temp=temp->m[c];
+          else
+          {
+              temp->m[c]=new node(c);
+              temp=temp->m[c];
+          }
+      }
+      temp->isterminal=true;
+      
+  }
+  
+  void func(node * temp)
+  {maxx=max(maxx,temp->priority);
+      map<char,node*> ::iterator it;
+      for(it=temp->m.begin();it!=temp->m.end();it++)
+      {
+          func(it->second);
+      }
+  }
+  
+  int searchtrie(string s)
+  {
+      node * temp=root;
+      char c;
+      for(int i=0;s[i]!='\0';i++)
+      {
+          c=s[i];
+          if(temp->m.count(c))
+          temp=temp->m[c];
+          else
+          return false;
+          
+      }
+      func(temp);
+  }
+  bool searchtries(string s)
+  {
+      node * temp=root;
+      char c;
+      for(int i=0;s[i]!='\0';i++)
+      {
+          c=s[i];
+          if(temp->m.count(c))
+          temp=temp->m[c];
+          else
+          return false;
+          
+      }
+      return temp->isterminal;
+  }
+};
+
+
+int main()
+{
+    int n,q;
+    cin>>n>>q;
+    getchar();
+    while(n--)
+    {
+        string s;
+        cin>>s;
+        int p;
+        cin>>p;
+        addword(s,p);
+        getchar();
+    }
+    while(q--)
+    {string s;
+     cin>>s;
+     maxx=0;
+     searchtrie(s)
+        cout<<maxx<<endl;
+    }
+return 0;
+}
